@@ -1019,7 +1019,6 @@ module.exports = class deepwaters extends Exchange {
         const lastTradeTimestamp = this.parseNumber (Precise.stringDiv (modifiedAtMicros, '1000', '0'));
         const baseAssetID = this.safeValue (order, 'baseAssetID');
         const quoteAssetID = this.safeValue (order, 'quoteAssetID');
-        console.log ('baseAssetID', baseAssetID, 'quoteAssetID', quoteAssetID);
         market = market ? market : this.market (baseAssetID + '-' + quoteAssetID);
         const symbol = this.safeValue (market, 'symbol');
         const price = this.safeNumber (order, 'price');
@@ -1045,7 +1044,6 @@ module.exports = class deepwaters extends Exchange {
             'cost': cost,
             'info': order,
         };
-        console.log ('output ====>', output);
         return this.safeOrder (output);
     }
 };
